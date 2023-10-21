@@ -17,9 +17,9 @@ while (userCommand === 'new') {
   userCommand = prompt("What would you like to do")
 } 
 
-// while (userCommand === 'list') {
-//   for (let todo of todos) {
-//     console.log(`${indexOf(todo)}: ${todo}`)
-//   }
-//   userCommand = prompt("What would you like to do")
-// }
+while (userCommand === 'list') {
+  for (let todo of todos) {
+    console.log(`${todos.indexOf(todo)}: ${todo}`)
+  }
+  userCommand = prompt("What would you like to do")
+}
