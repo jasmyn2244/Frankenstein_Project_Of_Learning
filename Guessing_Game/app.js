@@ -1,6 +1,6 @@
 let maxNum = parseInt(prompt("Enter a high number"));
 while(!maxNum) {
-  prompt("Enter a valid number or press 'q' to quit")
+  maxNum = parseInt(prompt("Enter a valid high number or press 'q' to quit"));
 }
 
 let targetNum = Math.floor(Math.random() * maxNum) + 1;
@@ -20,6 +20,8 @@ while(parseInt(guess) !== targetNum) {
     guess = prompt("That's too low, guess a gain")
     attempts++
   } else {
-    
+    guess = prompt("Enter a valid number or type 'q' to quit")
   }
 }
+
+console.log(`CONGRATS! You guessed the correct number! It took you ${attempts} guesses`)
