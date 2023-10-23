@@ -9,12 +9,17 @@ const btnReset = document.querySelector('#reset');
 const playingTo = document.querySelector('#playingTo');
 
 
-let player1Score = 0
-let player2Score = 0
-let gameOver = false
+let player1Score = 0;
+let player2Score = 0;
+let winningScore = 5;
+let isGameOver = false;
 
+if (player1Score === winningScore || player2Score === winningScore) {
+  isGameOver = true
+}
 
 btnReset.addEventListener('click', function () {
+  isGameOver = false
   player1Score = 0;
   player2Score = 0;
   updateScore();
@@ -32,14 +37,26 @@ function updateScore() {
 //while(player1Score < playingTo.value && player2Score < playingTo.value) {
 
 btnPlayer1.addEventListener('click', function () {
-  console.log(playingTo.value)
-  player1Score++;
-  updateScore();
+  if (!isGameOver) {
+    player1Score++;
+    if (player1Score === winningScore) {
+      isGameOver = true
+    }
+    updateScore();
+  }
+
 })
 
 btnPlayer2.addEventListener('click', function () {
-  player2Score++;
-  updateScore();
+  if (!isGameOver) {
+    player2Score++;
+    if (player2Score === winningScore) {
+      isGameOver === true
+    }
+    updateScore();
+  }
+  
+
 })
 //}
 
