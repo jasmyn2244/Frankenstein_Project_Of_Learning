@@ -15,8 +15,9 @@ let gameOver = false
 
 
 btnReset.addEventListener('click', function () {
-  player1Score.innerText = 0;
-  player2Score.innerText = 0;
+  player1Score = 0;
+  player2Score = 0;
+  updateScore();
 })
 
 // function updateScore() {
@@ -28,9 +29,10 @@ function updateScore() {
   scoreboard2.innerText = `${player2Score}`;
 }
 
-// while(player1Score < playingTo.value && player2Score < playingTo.value) {
+//while(player1Score < playingTo.value && player2Score < playingTo.value) {
 
-  btnPlayer1.addEventListener('click', function () {
+btnPlayer1.addEventListener('click', function () {
+  console.log(playingTo.value)
   player1Score++;
   updateScore();
 })
@@ -39,7 +41,7 @@ btnPlayer2.addEventListener('click', function () {
   player2Score++;
   updateScore();
 })
-// }
+//}
 
 // if(player1Score > player2Score) {
 //   player1Score.classList.add('winner');
