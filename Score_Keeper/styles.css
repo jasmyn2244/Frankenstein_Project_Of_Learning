@@ -35,6 +35,13 @@ h2 {
   margin: 0 0 .5em 0;
 }
 
+.button {
+  border: none;
+  border-radius: 10px;
+  height: 3em;
+}
+
+
 .scoreButtons {
   display: flex;
   flex-direction: row;
@@ -71,22 +78,22 @@ select {
   justify-content: center;
 }
 
-.button {
-  border: none;
-  border-radius: 10px;
-  height: 3em;
-}
-
 button:hover {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+/* Not sure why I can't get this to work */
+/* reset:active {
+  box-shadow: box-shadow: 0 0 0 3px rgba(148, 0, 211, 1), 0 0 0 6px rgba(75, 0, 130, 1), 0 0 0 9px rgba(0, 0, 255, 1), 0 0 0 12px rgba(0, 255, 0, 1), 0 0 0 15px rgba(255, 255, 0, 1), 0 0 0 18px rgba(255, 127, 0, 1), 0 0 0 21px rgba(255, 0, 0, 1);
+  ;
+} */
 
 p {
   align-self: center;
 }
 
 .winner {
-  color: rgb(58, 139, 23);
+  color: rgb(78, 183, 33);
 }
 
 .loser {
