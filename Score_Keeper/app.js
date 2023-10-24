@@ -34,7 +34,6 @@ function updateScore() {
   scoreboard2.innerText = `${player2Score}`;
 }
 
-//while(player1Score < playingTo.value && player2Score < playingTo.value) {
 
 btnPlayer1.addEventListener('click', function () {
   if (!isGameOver) {
@@ -50,14 +49,30 @@ btnPlayer1.addEventListener('click', function () {
 btnPlayer2.addEventListener('click', function () {
   if (!isGameOver) {
     player2Score++;
-    if (player2Score === winningScore) {
-      isGameOver === true
-    }
     updateScore();
+    if (player2Score === winningScore) {
+      isGameOver = true
+      scoreboard1.classList.add('winner');
+      scoreboard2.classList.add('loser');
+    }
+
   }
-  
 
 })
+
+// btnPlayer2.addEventListener('click', function () {
+//   if (!isGameOver) {
+//     player2Score++;
+//     if (player2Score === winningScore) {
+//       isGameOver === true
+//       // player1Score.classList.add('winner');
+//       // player2Score.classList.add('loser');
+//     }
+//     updateScore();
+//   }
+  
+
+// })
 //}
 
 // if(player1Score > player2Score) {
