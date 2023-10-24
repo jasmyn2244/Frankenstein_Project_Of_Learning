@@ -25,6 +25,8 @@ function reset() {
   updateScore();
   scoreboard1.classList.remove('winner', 'loser');
   scoreboard2.classList.remove('winner', 'loser');
+  btnPlayer1.disabled = false;
+  btnPlayer2.disabled = false;
 }
 
 function updateScore() {
@@ -47,6 +49,9 @@ btnPlayer1.addEventListener('click', function () {
       isGameOver = true;
       scoreboard1.classList.add('winner');
       scoreboard2.classList.add('loser');
+      btnPlayer1.disabled = true;
+      btnPlayer2.disabled = true;
+
     }
   }
 })
@@ -59,6 +64,8 @@ btnPlayer2.addEventListener('click', function () {
       isGameOver = true
       scoreboard1.classList.add('loser');
       scoreboard2.classList.add('winner');
+      btnPlayer1.disabled = true;
+      btnPlayer2.disabled = true;
     }
   }
 })
