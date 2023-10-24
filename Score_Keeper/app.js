@@ -18,30 +18,31 @@ if (player1Score === winningScore || player2Score === winningScore) {
   isGameOver = true
 }
 
-btnReset.addEventListener('click', function () {
+function reset() {
   isGameOver = false
   player1Score = 0;
   player2Score = 0;
   updateScore();
-  scoreboard1.classList.remove('winner');
-  scoreboard1.classList.remove('loser');
-  scoreboard2.classList.remove('winner');
-  scoreboard2.classList.remove('loser');
-  
-})
+  scoreboard1.classList.remove('winner', 'loser');
+  scoreboard2.classList.remove('winner', 'loser');
+}
 
 function updateScore() {
   scoreboard1.innerText = `${player1Score}`;
   scoreboard2.innerText = `${player2Score}`;
 }
 
+btnReset.addEventListener('click', reset)
+
+playingTo.addEventListener('change', function () {
+  winningScore = parseInt(playingTo.value);
+})
 
 btnPlayer1.addEventListener('click', function () {
   if (!isGameOver) {
     player1Score++;
     updateScore();
     console.log(typeof(playingTo.value))
-    //winningScore = parseInt(playingTo.value); 
     if (player1Score === winningScore) {
       isGameOver = true;
       scoreboard1.classList.add('winner');
@@ -54,7 +55,6 @@ btnPlayer2.addEventListener('click', function () {
   if (!isGameOver) {
     player2Score++;
     updateScore();
-    //winningScore = parseInt(playingTo.value); 
     if (player2Score === winningScore) {
       isGameOver = true
       scoreboard1.classList.add('loser');
@@ -62,32 +62,5 @@ btnPlayer2.addEventListener('click', function () {
     }
   }
 })
-
-playingTo.addEventListener('change', function () {
-  winningScore = parseInt(playingTo.value);
-})
-
-// btnPlayer2.addEventListener('click', function () {
-//   if (!isGameOver) {
-//     player2Score++;
-//     if (player2Score === winningScore) {
-//       isGameOver === true
-//       // player1Score.classList.add('winner');
-//       // player2Score.classList.add('loser');
-//     }
-//     updateScore();
-//   }
-  
-
-// })
-//}
-
-// if(player1Score > player2Score) {
-//   player1Score.classList.add('winner');
-//   player2Score.classList.add('loser');
-// } else {
-//   player1Score.classList.add('winner');
-//   player2Score.classList.add('loser');
-// }
 
 
