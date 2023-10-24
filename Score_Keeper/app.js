@@ -23,11 +23,12 @@ btnReset.addEventListener('click', function () {
   player1Score = 0;
   player2Score = 0;
   updateScore();
+  scoreboard1.classList.remove('winner');
+  scoreboard1.classList.remove('loser');
+  scoreboard2.classList.remove('winner');
+  scoreboard2.classList.remove('loser');
+  
 })
-
-// function updateScore() {
-//   scoreboard.innerText = `${player1Score} to ${player2Score}`;
-// }
 
 function updateScore() {
   scoreboard1.innerText = `${player1Score}`;
@@ -38,26 +39,32 @@ function updateScore() {
 btnPlayer1.addEventListener('click', function () {
   if (!isGameOver) {
     player1Score++;
-    if (player1Score === winningScore) {
-      isGameOver = true
-    }
     updateScore();
+    console.log(typeof(playingTo.value))
+    //winningScore = parseInt(playingTo.value); 
+    if (player1Score === winningScore) {
+      isGameOver = true;
+      scoreboard1.classList.add('winner');
+      scoreboard2.classList.add('loser');
+    }
   }
-
 })
 
 btnPlayer2.addEventListener('click', function () {
   if (!isGameOver) {
     player2Score++;
     updateScore();
+    //winningScore = parseInt(playingTo.value); 
     if (player2Score === winningScore) {
       isGameOver = true
-      scoreboard1.classList.add('winner');
-      scoreboard2.classList.add('loser');
+      scoreboard1.classList.add('loser');
+      scoreboard2.classList.add('winner');
     }
-
   }
+})
 
+playingTo.addEventListener('change', function () {
+  winningScore = parseInt(playingTo.value);
 })
 
 // btnPlayer2.addEventListener('click', function () {

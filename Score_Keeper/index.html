@@ -3,29 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Score Keeper</title>
+    <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <img
-      src="https://img.freepik.com/free-vector/people-playing-table-tennis_23-2148662482.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697587200&semt=ais"
-      alt="Ping pong game in action"
-    />
-    <h1>Ping Pong Score Keeper</h1>
-    <h2 id="scoreBoard">
-      <span id="player1Score">0</span> to <span id="player2Score">0</span>
-    </h2>
-    <p>Use the buttons below to keep score</p>
-    <label>Playing To:</label>
-    <select id="playingTo" name="playingTo">
-      <option selected disabled>Choose one</option>
-      <option value="5">5</option>
-      <option value="11">11</option>
-      <option value="21">21</option>
-    </select>
-    <div>
-      <button class="button" id="player1">+1 Player One</button>
-      <button class="button" id="player2">+1 Player Two</button>
-      <button class="button" id="reset">Reset</button>
+    <div class="container">
+      <img
+        src="https://img.freepik.com/free-vector/people-playing-table-tennis_23-2148662482.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697587200&semt=ais"
+        alt="Ping pong game in action"
+      />
+      <h1>Ping Pong Score Keeper</h1>
+      <h2 id="scoreBoard">
+        <span id="player1Score">0</span> to <span id="player2Score">0</span>
+      </h2>
+      <div class="playingTo">
+        <label for="playingTo">Playing To:</label>
+        <select id="playingTo" name="playingTo">
+          <option selected disabled>--</option>
+          <option value="5">5</option>
+          <option value="11">11</option>
+          <option value="21">21</option>
+        </select>
+      </div>
+      <p>Use the buttons below to keep score</p>
+      <div class="scoreButtons">
+        <button class="button player player1" id="player1">
+          +1 Player One
+        </button>
+        <button class="button player player2" id="player2">
+          +1 Player Two
+        </button>
+      </div>
+      <button class="button reset" id="reset">Reset</button>
     </div>
     <script src="app.js"></script>
   </body>
