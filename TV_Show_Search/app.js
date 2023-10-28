@@ -1,1 +1,3 @@
-console.log("hello does this work?")
+const userInput = document.querySelector('#search');
+const button = document.querySelector('button');
+
