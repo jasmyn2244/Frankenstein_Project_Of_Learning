@@ -9,30 +9,32 @@ console.log(userInput.elements)
 //   e.preventDefault()
 // });
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault()
-  console.log(userInput.value);
-  const shows = getShows();
-  console.log(shows)
-  // const showsData = async getShows() => {
-  //   await console.log(showsData);
+  const shows = await getShows();
+  displayShows(shows);
+  userInput.value = '';
   });
-
-  // for (showData of showsData) {
-
-  // }
-
-// });
 
 const getShows = async () => {
   try {
     const searchTerm = userInput.value;
       //This is the same as above. Not sure why you'd use the longer one, but it's what Colt does
       //form.elements.search.value;
-    const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchTerm}`);
+    const config = { params: { q: searchTerm } }
+    const res = await axios.get(`https://api.tvmaze.com/search/shows`, config);
     return res.data; 
   } catch (e) {
     console.log("ERROR", e);
   }
 }
 
+const displayShows = (shows) => {
+  for(let tvShow of shows) {
+    if (tvShow.show.image) {
+      const image = document.createElement('img');
+      image.src = tvShow.show.image.medium;
+      document.body.append(image);
+    }   
+  }  
+}
