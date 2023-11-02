@@ -1,7 +1,10 @@
 const franc = require('franc');
 const langs = require('langs');
 
-const langCode = franc('Wie geht es dir');
+ const arg = process.argv[2];
+ console.log(arg)
+
+const langCode = franc(arg);
 
 if (langCode === 'und') {
   console.log('Sorry, we can\'t translate that. Try a longer sentence')
