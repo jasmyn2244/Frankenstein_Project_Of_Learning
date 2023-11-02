@@ -2,7 +2,7 @@ const franc = require('franc');
 const langs = require('langs');
 
  const arg = process.argv[2];
- console.log(arg)
+ //console.log(arg)
 
 const langCode = franc(arg);
 
